@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coba3</title>
+    <link rel="stylesheet" href="coba.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="coba.html">Home</a></li>
+            <li><a href="coba1.html">Education</a></li>
+            <li><a href="coba4.html">Projects</a></li>
+         
+           
+        </ul>
+    </nav>
+
+    <!-- Include Contact Form -->
+    <section id="contact" class="form-section">
+        <h2>Contact</h2>
+        <p>Nomor Hp: <a href="tel:+6282283907096">082283907096</a></p>
+        <p>Email: <a href="mailto:jassuhaba@gmail.com">jassuhaba@gmail.com</a></p>
+        <br>
+        <p>Jika ada hal yang ingin disampaikan, silahkan masukkan pesan Anda pada form di bawah ini.</p>
+        
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" placeholder="Masukkan Nama" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" placeholder="Masukkan Email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Masukkan Pesan" name="message" rows="4" required></textarea>
+
+            <button type="submit" onclick="submitMessage(event)">Submit</button>
+            <p id="confirmation" style="color: green; margin-top: 10px; display: none;">Pesan berhasil dikirim!</p>
+        </form>
+
+    <script>
+        function showToast(message, isSuccess) {
+            const toast = document.createElement("div");
+            toast.className = "toast";
+            toast.textContent = message;
+    
+            // Tambahkan kelas sukses atau gagal
+            if (isSuccess) {
+                toast.classList.add("success");
+            } else {
+                toast.classList.add("error");
+            }
+    
+            document.body.appendChild(toast);
+    
+            // Tampilkan toast dan hilangkan setelah 3 detik
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+    
+        function submitMessage(event) {
+            event.preventDefault(); // Mencegah pengiriman form
+    
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+    
+            if (!name || !email || !message) {
+                showToast("Silahkan isi data", false);
+            } else {
+                showToast("Pesan Terkirim!", true);
+                // Bersihkan form setelah sukses
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
+            }
+        }
+    </script>
+    
+
+    
+</body>
+</html>

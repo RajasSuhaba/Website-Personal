@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV 4</title>
+    <link rel="stylesheet" href="coba.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="coba.html">Home</a></li>
+            <li><a href="coba3.html">Contact</a></li>
+            <li><a href="coba1.html">Education</a></li>
+        </ul>
+    </nav>
+    <section id="projects" class="table-section">
+        <h2>Projects</h2>
+        <div class="project-cards">
+            <div class="card" onclick="showDetails('Project 1', 'Membuat Makalah Tentang Binary Research', 'Word dan C++', 'Struktur Data','https://sttpln-my.sharepoint.com/:p:/g/personal/t2231035_itpln_ac_id/Ed9cEpq92EFCvrQ4Ie29yd4BPXP4DPJ1RmehGV_ANy7bYQ?e=YmvOpG')">
+                <img src="binary_research.jpg" alt="Binary Research">
+                <h3>Project 1</h3>
+                <p>Membuat Makalah Tentang Binary Research</p>
+            </div>
+            <div class="card" onclick="showDetails('Project 2', 'Membuat Makalah Tentang Penelitian Toast Boba', 'Word', 'Bahasa Indonesia','https://sttpln-my.sharepoint.com/:p:/g/personal/t2231035_itpln_ac_id/Ed9cEpq92EFCvrQ4Ie29yd4BPXP4DPJ1RmehGV_ANy7bYQ?e=YmvOpG')">
+                <img src="toast_boba.jpg" alt="Toast Boba">
+                <h3>Project 2</h3>
+                <p>Membuat Makalah Tentang Penelitian Toast Boba</p>
+            </div>
+            <div class="card" onclick="showDetails('Project 3', 'Membuat Makalah Tentang Bullying', 'Word', 'Bahasa Inggris','https://sttpln-my.sharepoint.com/:p:/g/personal/t2231035_itpln_ac_id/Ed9cEpq92EFCvrQ4Ie29yd4BPXP4DPJ1RmehGV_ANy7bYQ?e=YmvOpG')">
+                <img src="bullying.jpeg" alt="Bullying">
+                <h3>Project 3</h3>
+                <p>Membuat Makalah Tentang Bullying</p>
+            </div>
+        </div>
+    
+        <!-- Modal for Details -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="hideDetails()">&times;</span>
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <p><b>Aplikasi:</b> <span id="modalApp"></span></p>
+                <p><b>Mata Kuliah:</b> <span id="modalSubject"></span></p>
+                <a id="pptLink" href="#" target="_blank">Lihat PPT</a>
+            </div>
+        </div>        
+    </section>
+    
+    
+    
+    <script>
+       function showDetails(title, description, app, subject, fileUrl) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalDescription").innerText = description;
+            document.getElementById("modalApp").innerText = app;
+            document.getElementById("modalSubject").innerText = subject;
+
+            const pptLink = document.getElementById("pptLink");
+            pptLink.href = fileUrl;
+            pptLink.style.display = "inline"; // Tampilkan link
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function hideDetails() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+    </script>
+    
+    
+
+</body>
+</html>
